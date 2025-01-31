@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  babylond:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: babylon-testnet5-node
+    environment:
+      - MONIKER=testnet5-node0
+      - CHAIN_ID=bbn-test-5
+    volumes:
+      - babylon-data:/home/babylon/.babylond
+    ports:
+      - "26656:26656"  # P2P port
+      - "26657:26657"  # RPC port
+    restart: unless-stopped
+
+volumes:
+  babylon-data:
+    name: babylon-testnet5-node0-data
