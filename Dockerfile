@@ -21,7 +21,7 @@ ENV GOPATH=/go
 ENV PATH=$PATH:$GOPATH/bin
 
 # Install Babylond for testnet 
-RUN git clone git://github.com/babylonchain/babylon.git && \
+RUN git clone https://github.com/babylonlabs-io/babylon.git && \
     cd babylon && \
     git checkout v1.0.0-rc.3 && \
     BABYLON_BUILD_OPTIONS="testnet" make install && \
