@@ -21,9 +21,9 @@ ENV GOPATH=/go
 ENV PATH=$PATH:$GOPATH/bin
 
 # Install Babylond for testnet 
-RUN git clone https://github.com/babylonlabs-io/babylon.git\
+RUN git clone git://github.com/babylonchain/babylon.git && \
     cd babylon && \
-    git checkout checkout v1.0.0-rc.3 \
+    git checkout v1.0.0-rc.3 && \
     BABYLON_BUILD_OPTIONS="testnet" make install && \
     cd .. && rm -rf babylon
 
@@ -36,5 +36,5 @@ RUN mkdir -p /root/.babylond
 # Set working directory
 WORKDIR /root
 
-CMD ["sh", "-c", "echo Babylon version: $BABYLON_VERSION && babylond version"]
+CMD ["babylond", "version"]
 
